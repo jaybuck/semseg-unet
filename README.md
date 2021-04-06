@@ -10,13 +10,10 @@ model architecture that is easier to understand in order to build
 better insights in order to really improve the precision and recall
 of the crack detection models.
 
-The U-Net architecture is ideal for this. And the code we used as a
-starting point is a tutorial so is designed to be understandable.
-We started with this TensorFlow tutorial:
+The U-Net architecture is ideal for this. And the code is much
+more understandable than other more complex architectures.
 
-<https://www.tensorflow.org/tutorials/images/segmentation>
-
-We modified it:
+We tailored the code:
 
 * For the crack detection task
 * To use OpenImageIO to read and process exr files
@@ -40,26 +37,25 @@ In particular, note that it operates on image tiles, not entire images.
 The basic prerequisites to run the U-Net Python code that trains U-Net models and
 then uses them to predict the class of pixels in new images are:
 
-* A computer running linux. We have tested under Ubuntu 16.04. Ubuntu 18.04 should work well too.
+* A computer running linux. We have tested under Ubuntu 16.04. Ubuntu 18.04 should work well too. (Well, if you can get OpenImageIO to build. Not trivial.)
 * At least 64 GB of RAM
 * An Nvidia GPU with at least 8 GB of RAM, along with:
   * Nvidia drivers
     * CUDA >= 10.0
-* Python 3
+* Python >= 3.6
 * TensorFlow 1.15
 * OpenImageIO, aka oiio
 
 All of the packages in the environment used for these experiments are
 listed in the file `requirements_unet_all.txt`
 
-## Contents of the semantic_segmentation_unet directory
+## Contents of the semseg_unet directory
 
 * `src` : Directory that holds Python code for training, testing and evaluating U-Net models
 for the crack detection task.
 * `run_*.sh` : Example scripts for
     - U-Net model training
     - Using a trained model for prediction on images
-    - Evaluating key metrics such as precision and recall on labeled test images.
 
 
     
